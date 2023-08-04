@@ -5,7 +5,7 @@ if [ ! -d ${output_model} ];then
 fi
 cp ./finetune.sh ${output_model}
 deepspeed --include localhost:0 --master_port 29510 finetune_clm_lora.py \
-    --model_name_or_path meta-llama/Llama-2-7b-chat-hf  \
+    --model_name_or_path ziqingyang/chinese-llama-2-7b  \
     --train_files ../../data/train_sft.csv \
     --validation_files  ../../data/dev_sft.csv \
     --per_device_train_batch_size 1 \
