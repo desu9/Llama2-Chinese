@@ -1,4 +1,4 @@
-output_model=./
+output_model=./output
 # 需要修改到自己的输入目录
 if [ ! -d ${output_model} ];then  
     mkdir ${output_model}
@@ -35,12 +35,12 @@ deepspeed --include localhost:0 --master_port 29510 finetune_clm_lora.py \
     --seed 42 \
     --disable_tqdm false \
     --ddp_find_unused_parameters false \
-    --block_size 4096 \
+    --block_size 512 \
     --report_to tensorboard \
     --overwrite_output_dir \
     --deepspeed ds_config_zero2.json \
     --ignore_data_skip true \
-    --bf16 \
+    --f16 \
     --gradient_checkpointing \
     --bf16_full_eval \
     --ddp_timeout 18000000 \
