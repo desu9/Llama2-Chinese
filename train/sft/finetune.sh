@@ -38,7 +38,7 @@ deepspeed --include localhost:0 --master_port 29510 finetune_clm_lora.py \
     --block_size 512 \
     --report_to tensorboard \
     --overwrite_output_dir \
-    --deepspeed ds_config_zero3.json \
+    --deepspeed ds_config_zero2.json \
     --ignore_data_skip true \
     --gradient_checkpointing \
     --ddp_timeout 18000000 \
